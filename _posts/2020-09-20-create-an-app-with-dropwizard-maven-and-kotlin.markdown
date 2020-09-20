@@ -9,8 +9,8 @@ In this post, I am going to show you how to create a simple and basic Dropwizard
 This is going to be a technical tutorial.
 
 At the end of this tutorial, your app will expose a RESTful API.  
-The code is written in Kotlin, but you can do the same with Java.  
-</br>
+The code is written in Kotlin, but you can do the same with Java.    
+
 I will start with a short explanation about Dropwizard and Maven.
 
 ## Dropwizard 
