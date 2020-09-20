@@ -223,3 +223,5 @@ Another option is to open your browser and type http://localhost:8080/helloWorld
 
 
 As you can see, we got the required output, including the config property. **Congratulations!**
+
+![](/photos/GOPR3264.JPG?raw=true)
