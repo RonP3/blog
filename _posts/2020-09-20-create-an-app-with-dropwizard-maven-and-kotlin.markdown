@@ -31,7 +31,7 @@ I will use IntelliJ Community Edition IDE in this tutorial.
 <br/>
 Click on File --> New --> Project --> Maven  
 You are going to see the following screen:
-![](photos/drop0.png?raw=true)
+![](/photos/drop0.png?raw=true)
 Click on "Next". Now you are ready to define the POM file.
 
 ## Defining the POM file
