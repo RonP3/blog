@@ -49,7 +49,7 @@ You can also define Kotlin compiler configurations through properties. In this c
 </properties>
 ```
 
-## Dependencies
+### Dependencies
 Your project needs dependencies in order to compile, build, run and test.
 In the dependencies tag, we will define dropwizard-core and kotlin-stdlib-jdk8
 
