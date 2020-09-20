@@ -5,15 +5,70 @@ date: 2020-09-20 14:33:01 +0300
 categories: jekyll update
 ---
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+In this post, I am going to show you how to create a simple and basic Dropwizard app. This is going to be a technical tutorial.
 
-Jekyll requires blog post files to be named according to the following format:
+At the end of this tutorial, your app will expose a RESTful API.
+The code is written in Kotlin, but you can do the same with Java.
 
-`YEAR-MONTH-DAY-title.MARKUP`
+I will start with a short explanation about Dropwizard and Maven.
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+# Dropwizard 
+Dropwizard is a light Java framework for building RESTful web services. Dropwizard collects together stable libraries, such as Jersey, Jackson, and JDBI, into a lightweight package.
 
-Jekyll also offers powerful support for code snippets:
+# Maven
+Maven is a build automation and management tool for Java.
+With Maven, it is easy to define the building of the software and the dependencies.
+POM is an XML file that describes a Maven project and its dependencies.
+
+Maven in Yiddish is "person with understanding, expert". This is the origin of the name for this tool.
+
+
+
+
+# Creating a new project
+I will use IntelliJ Community Edition IDE in this tutorial.
+<br/>
+<br/>
+Click on File --> New --> Project --> Maven  
+You are going to see the following screen:
+![New project screen](https://github.com/RonP3/blog/blob/master/photos/drop0.png)
+Click on "Next". Now you are ready to define the POM file.
+
+# Defining the POM file
+As I described at the beginning of the tutorial, we have to define the dependencies of the project in the POM.xml file. Let's do it together.
+
+## Properties
+In the properties tag, define the version of Dropwizard and Kotlin you want to use.
+You can also define Kotlin compiler configurations through properties. In this case, I defined languageVersion (you want to ensure source compatibility with the specified version of Kotlin) and jvmTarget (the target version of the generated JVM bytecode).
+```xml
+<properties>
+	<dropwizard.version>2.0.13</dropwizard.version>
+	<kotlin.version>1.4.10</kotlin.version>
+	<kotlin.compiler.languageVersion>1.4</kotlin.compiler.languageVersion>
+	<kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
+</properties>
+```
+
+## Dependencies
+Your project needs dependencies in order to compile, build, run and test.
+In the dependencies tag, we will define dropwizard-core and kotlin-stdlib-jdk8
+
+```xml
+<dependencies>
+	<dependency>
+		<groupId>io.dropwizard</groupId>
+		<artifactId>dropwizard-core</artifactId>
+		<version>${dropwizard.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.jetbrains.kotlin</groupId>
+		<artifactId>kotlin-stdlib-jdk8</artifactId>
+		<version>${kotlin.version}</version>
+	</dependency>
+</dependencies>
+```
+
 
 {% highlight ruby %}
 def print_hi(name)
