@@ -79,7 +79,7 @@ Broadly speaking, dropwizard-core module includes:
 * Metrics - library for application metrics.
 
 #### Compilation
-First, we will specify the source directories in <sourceDirectory> and in <testSourceDirectory> in order to compile the source code.  
+First, we will specify the source directories in ```<sourceDirectory>``` and in ```<testSourceDirectory>``` in order to compile the source code.  
 The <plugin> section is responsible for the configuration of the Kotlin plugin in order to compile our source code. 
 
 ```xml
@@ -130,7 +130,7 @@ import io.dropwizard.Configuration
 
 class MyAppConfig(@JsonProperty("configTest") val configTest: String): Configuration()
 ```
-We use the JsonProperty to allow Jackson to deserialize the properties (in our cast, configTest) from YAML file to our application's Configuration instance.	
+We use the JsonProperty to allow Jackson to deserialize the properties (in our case, configTest) from YAML file to our application's Configuration instance.	
 
 ## Creating an Application class
 To run an instance of our Dropwizard RESTful server we have to implement our Application class.  
