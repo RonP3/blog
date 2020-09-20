@@ -20,8 +20,8 @@ Dropwizard collects together stable libraries, such as Jersey, Jackson, and JDBI
 ## Maven
 [Maven](https://maven.apache.org/) is a build automation and management tool for Java.  
 With Maven, it is easy to define the building of the software and the dependencies.  
-POM is an XML file that describes a Maven project and its dependencies.  
-</br>
+POM is an XML file that describes a Maven project and its dependencies.    
+
 Maven in Yiddish is "person with understanding, expert". This is the origin of the name for this tool.
 
 
@@ -53,8 +53,7 @@ In this case, I defined languageVersion (you want to ensure source compatibility
 ```
 
 #### Dependencies
-Your project needs dependencies in order to compile, build, run and test.
-</br>
+Your project needs dependencies in order to compile, build, run and test.  
 In the dependencies tag, we will define dropwizard-core and kotlin-stdlib-jdk8
 
 ```xml
@@ -80,8 +79,7 @@ Broadly speaking, dropwizard-core module includes:
 * Metrics - library for application metrics.
 
 #### Compilation
-First, we will specify the source directories in <sourceDirectory> and in <testSourceDirectory> in order to compile the source code.
-</br>
+First, we will specify the source directories in <sourceDirectory> and in <testSourceDirectory> in order to compile the source code.  
 The <plugin> section is responsible for the configuration of the Kotlin plugin in order to compile our source code. 
 
 ```xml
@@ -113,19 +111,15 @@ The <plugin> section is responsible for the configuration of the Kotlin plugin i
 ```
 
 ## Project structure and configuration file
-Here is my project structure, you can create the same structure.
-</br>
-![](/photos/drop0-1.png?raw=true)
-</br>
-We can define parameters in YAML configuration file which is deserialized to an instance of our configuration class.
-</br>
+Here is my project structure, you can create the same structure.  
+![](/photos/drop0-1.png?raw=true)  
+We can define parameters in YAML configuration file which is deserialized to an instance of our configuration class.  
 Let's create both of them. Create my-app-config.yml in src/main/resources and add one parameter to this file as follow:
 ```xml
 configTest: Ron
 ```
 
-Now, we define our configuration class which extends the Dropwizard Configuration class.
-</br>
+Now, we define our configuration class which extends the Dropwizard Configuration class.  
 Create MyAppConfig.kt in the configuration package. Here is the code:
 ```kotlin
 package com.ronp.mydropwizardapp.configuration
@@ -139,8 +133,7 @@ class MyAppConfig(@JsonProperty("configTest") val configTest: String): Configura
 We use the JsonProperty to allow Jackson to deserialize the properties (in our cast, configTest) from YAML file to our application's Configuration instance.	
 
 ## Creating an Application class
-To run an instance of our Dropwizard RESTful server we have to implement our Application class.
-</br>
+To run an instance of our Dropwizard RESTful server we have to implement our Application class.  
 Create a new MyApp class in mydropwizardapp and implement as following:
 
 ```kotlin
@@ -163,10 +156,8 @@ class MyApp: Application<MyAppConfig>() {
 ```
 
 ## Creating and registering a resource class
-Now we can add our first endpoint!
-</br>
-To do that we need to create a new Jersey REST resource.
-</br>
+Now we can add our first endpoint!  
+To do that we need to create a new Jersey REST resource.  
 In mydropwizardapp/resources create a new class - HelloWorldResource.kt
 
 ```kotlin
@@ -181,13 +172,10 @@ class HelloWorldResource(private val property: String) {
     fun helloWorld() = "Hello World $property :)"
 }
 ```
-As you can see, a resource is associated with a URI template, in our case it is "/helloWorld".
-</br>
-The @Path annotation tells Jersey that this resource is available at the URI "/helloWorld".
-</br>
-</br>
-Now, we are ready to complete the MyApp code and register our resource to the application.
-</br>
+As you can see, a resource is associated with a URI template, in our case it is "/helloWorld".  
+The @Path annotation tells Jersey that this resource is available at the URI "/helloWorld".    
+
+Now, we are ready to complete the MyApp code and register our resource to the application.  
 In the run method write the following code in order to register HelloWorldResource. 
 ```kotlin
 package com.ronp.mydropwizardapp
@@ -210,43 +198,30 @@ class MyApp: Application<MyAppConfig>() {
 Notice that we are using the configuration YAML and pass the property to the resource (myAppConfig.configTest).
 
 ## Running the application
-We are ready to run our application!
-</br>
-To do that you should edit the "Program arguments" in MyApp running configurations as follows:
-</br>
-![](/photos/drop6.PNG?raw=true)
-</br>
-It tells to the Dropwizard app to run as a server and specify the location of the configuration file.
-</br>
-</br>
-Now you can click on run:
-</br>
-![](/photos/drop7.PNG?raw=true)
-</br>
-You would see the following info messages on the run tab: 
-</br>
-![](/photos/drop9.PNG?raw=true)
-</br>
-That means our resource was registered properly as a GET request on /helloWorld path.
-</br>
-</br>
-![](/photos/drop8.PNG?raw=true)
-</br>
-That means our app is running on port 8080.
-</br>
-</br>
-</br>
-In order to call and test our resource you can write:
-</br>
-```curl HTTP://localhost:8080/helloWorld```
-</br>
-and you should see the following expected output:
-</br>
-![](/photos/drop10.PNG?raw=true)
-</br>
-Another option is to open your browser and type http://localhost:8080/helloWorld on the address line.
-</br>
-</br>
+We are ready to run our application!  
+To do that you should edit the "Program arguments" in MyApp running configurations as follows:  
+![](/photos/drop6.PNG?raw=true)  
+It tells to the Dropwizard app to run as a server and specify the location of the configuration file.    
+
+Now you can click on run:  
+![](/photos/drop7.PNG?raw=true)  
+You would see the following info messages on the run tab:  
+![](/photos/drop9.PNG?raw=true)  
+
+That means our resource was registered properly as a GET request on /helloWorld path.    
+
+![](/photos/drop8.PNG?raw=true)  
+That means our app is running on port 8080.      
+
+
+
+In order to call and test our resource you can write:  
+```curl HTTP://localhost:8080/helloWorld```  
+and you should see the following expected output:  
+![](/photos/drop10.PNG?raw=true)  
+Another option is to open your browser and type http://localhost:8080/helloWorld on the address line.    
+
+
 As you can see, we got the required output, including the config property. **Congratulations!**
 
 
