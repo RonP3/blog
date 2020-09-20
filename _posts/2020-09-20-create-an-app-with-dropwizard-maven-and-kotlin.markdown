@@ -13,11 +13,11 @@ The code is written in Kotlin, but you can do the same with Java.
 
 I will start with a short explanation about Dropwizard and Maven.
 
-## Dropwizard 
+#### Dropwizard 
 [Dropwizard](https://www.dropwizard.io/) is a light Java framework for building RESTful web services.  
 Dropwizard collects together stable libraries, such as Jersey, Jackson, and JDBI, into a lightweight package.
 
-## Maven
+#### Maven
 [Maven](https://maven.apache.org/) is a build automation and management tool for Java.  
 With Maven, it is easy to define the building of the software and the dependencies.  
 POM is an XML file that describes a Maven project and its dependencies.    
@@ -223,12 +223,3 @@ Another option is to open your browser and type http://localhost:8080/helloWorld
 
 
 As you can see, we got the required output, including the config property. **Congratulations!**
-
-
-
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]: https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
