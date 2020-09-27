@@ -111,7 +111,7 @@ The <plugin> section is responsible for the configuration of the Kotlin plugin i
 ```
 
 ## Project structure and configuration file
-Here is my project structure, you can create the same structure.  
+Here is my project structure, and you can create the same structure.  
 ![](/photos/drop0-1.png?raw=true)  
 We can define parameters in YAML configuration file which is deserialized to an instance of our configuration class.  
 Let's create both of them. Create my-app-config.yml in src/main/resources and add one parameter to this file as follow:
@@ -119,7 +119,7 @@ Let's create both of them. Create my-app-config.yml in src/main/resources and ad
 configTest: Ron
 ```
 
-Now, we define our configuration class which extends the Dropwizard Configuration class.  
+Now, we define our configuration class, which extends the Dropwizard Configuration class.  
 Create MyAppConfig.kt in the configuration package. Here is the code:
 ```kotlin
 package com.ronp.mydropwizardapp.configuration
@@ -130,11 +130,11 @@ import io.dropwizard.Configuration
 
 class MyAppConfig(@JsonProperty("configTest") val configTest: String): Configuration()
 ```
-We use the JsonProperty to allow Jackson to deserialize the properties (in our case, configTest) from YAML file to our application's Configuration instance.	
+We use the JsonProperty to allow Jackson to deserialize the properties (in our case, configTest) from a YAML file to our application's Configuration instance.	
 
 ## Creating an Application class
-To run an instance of our Dropwizard RESTful server we have to implement our Application class.  
-Create a new MyApp class in mydropwizardapp and implement as following:
+To run an instance of our Dropwizard RESTful server, we have to implement our Application class.  
+Create a new MyApp class in mydropwizardapp and implement as follows:
 
 ```kotlin
 package com.ronp.mydropwizardapp
@@ -176,7 +176,7 @@ As you can see, a resource is associated with a URI template, in our case it is 
 The @Path annotation tells Jersey that this resource is available at the URI "/helloWorld".    
 
 Now, we are ready to complete the MyApp code and register our resource to the application.  
-In the run method write the following code in order to register HelloWorldResource. 
+In the run method, write the following code in order to register HelloWorldResource. 
 ```kotlin
 package com.ronp.mydropwizardapp
 
@@ -195,17 +195,17 @@ class MyApp: Application<MyAppConfig>() {
     }
 }
 ```
-Notice that we are using the configuration YAML and pass the property to the resource (myAppConfig.configTest).
+Notice that we are using the configuration YAML and passing the property to the resource (myAppConfig.configTest).
 
 ## Running the application
 We are ready to run our application!  
 To do that you should edit the "Program arguments" in MyApp running configurations as follows:  
 ![](/photos/drop6.PNG?raw=true)  
-It tells to the Dropwizard app to run as a server and specify the location of the configuration file.    
+It tells the Dropwizard app to run as a server and specify the location of the configuration file.    
 
 Now you can click on run:  
 ![](/photos/drop7.PNG?raw=true)  
-You would see the following info messages on the run tab:  
+You should see the following info messages on the run tab:  
 ![](/photos/drop9.PNG?raw=true)  
 
 That means our resource was registered properly as a GET request on /helloWorld path.    
