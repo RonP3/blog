@@ -7,7 +7,7 @@ Do you know how to perform authentication and authorization in Dropwizard? Neith
 <br />
 <br />
 ### Authentication
-We are using authentication to identify **who the user is**.
+Authentication is used in order to identify **who the user is**.
 <br />
 <br />
 There are several authentication schemes that is used by the HTTP authentication framework.  
