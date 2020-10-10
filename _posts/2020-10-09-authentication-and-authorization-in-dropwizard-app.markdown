@@ -27,6 +27,7 @@ The Basic scheme flow:
 - The server will send HTTP 403 forbidden. In this case, the user authenticated successfully, but does not have the right permissions in order to access the resource.  
 <br />
 <br />
+
 You can find the official HTTP/1.1 Authentication documentation in [RFC-7235](https://tools.ietf.org/html/rfc7235)
 
 ### Authorization
