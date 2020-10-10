@@ -12,8 +12,8 @@ We are using authentication to identify **who the user is**. Most of the times t
 <br />
 <br />
 There are several authentication schemes that is used by the HTTP authentication framework.  
-In this tutorial, we will talk about the "Basic" authentication schemes for simplicity.  
-An important note: In Basic scheme, the user ID and password are passed in base64-encoding over the network. HTTPS/TLS should be used if you are using this scheme. The reason for this is that base64 is reversible encoding, we will see it during this tutorial.
+In this post, we will talk about the "Basic" authentication schemes for simplicity.  
+An important note: In Basic scheme, the user ID and password are passed in base64-encoding over the network. HTTPS/TLS should be used if you are using this scheme. The reason for this is that base64 is reversible encoding, we will see it during this post.
 <br />
 <br />
 The Basic scheme flow:  
