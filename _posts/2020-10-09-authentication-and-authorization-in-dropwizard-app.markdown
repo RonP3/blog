@@ -71,7 +71,7 @@ enum class GroupRoles(val roles: Set<Role>) {
 }
 ```
 
-#### Implement the Principle object
+#### Implementing the Principle object
 Once the user is authenticated, the application establishes the Principle. The Principle is an object whice represent the currently logged in user in the context of the applicatiom.  
 One user can have multiple IDs, for example, if the user has several gmail accounts. But there is usually just one logged-in user per request and this is going to be the Principle.  
 <br />
