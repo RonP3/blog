@@ -32,6 +32,7 @@ You can find the official HTTP/1.1 Authentication documentation in [RFC-7235](ht
 ### Authorization
 We use authorization to manage users permissions in our app.  This is the process of granting or denying access to a resource based on the user's identity.  
 For example, if we want to create an API for user deletion, we would probably like to give a permission for this API just for the admin of the system, and not for a regular user.  
+<br />
 The relevant error status code is 403 Forbidden. When a 403 is sent, authentication is possible, but the user does not have the right permissions.
 <br />
 <br />
