@@ -88,7 +88,7 @@ data class MyAppUser(private val name: String, val groupRoles: GroupRoles): Prin
 ```  
 
 #### Creating a Custom Authenticator
-Now we can create our authenticator which implements [Interface Authenticator<C,P extends Principal>](https://javadoc.io/static/io.dropwizard/dropwizard-auth/1.3.9/io/dropwizard/auth/Authenticator.html)  
+Now we can create our authenticator which implements [Interface Authenticator<C,P extends Principal>](https://javadoc.io/static/io.dropwizard/dropwizard-auth/1.3.9/io/dropwizard/auth/Authenticator.html).  
 The authenticator gets user basic credentials as input and should validate them. If the authentication succeeds,the authenticate function should return a Principle object (user) in an Optional container. Otherwise, an empty Optional is returned, indicating that the credentials are invalid.  
 Here is the implementation:  
 ```kotlin
