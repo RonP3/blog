@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Create an app with Dropwizard, Maven and Kotlin"
+title: "Create an App with Dropwizard, Maven and Kotlin"
 date: 2020-09-20 14:33:01 +0300
 categories: jekyll update
 ---
