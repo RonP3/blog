@@ -1,10 +1,9 @@
 ---
 layout: post
-title: "Authentication and Authorization in dropwizard app (Kotlin)"
+title: "Authentication and Authorization in Dropwizard App (Kotlin)"
 date: 2020-10-09 16:34:01 +0300
 ---
-**To think about a better introduction**  
-This time I will talk about authentication and authorization and we will add them into a Dropwizard app.
+Do you know how to perform authentication and authorization in Dropwizard? Neither did I, but I had to learn it for a recent work project and I thought I would share what I have learned with you.
 <br />
 <br />
 ### Authentication
