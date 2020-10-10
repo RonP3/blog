@@ -172,7 +172,7 @@ It is possible to define a custom filter if needed. To do that you should use ``
 #### Secure Our Resources
 There are 2 options to secure your resource:
 1. Use one of ```@RolesAllowed```, ```@DenyAll```, ```@PermitAll``` annotations.  Each one of this annotations will trigger the authenticator and the authentication filter, in order to validate the credentials, and the authorizer, in order to check the permissions.
-2. Use @Auth annotation, in order to trigger the authenticator and the authentication filter.
+2. Use ```@Auth``` annotation, in order to trigger the authenticator and the authentication filter.
 
 **An important note:** Using ```@PermitAll``` and not setting any of these annotations is not the same! If you don't set one of these annotations, the authenticator will not be triggered, so any user can access this API.
 
@@ -197,4 +197,11 @@ class HelloWorldResource(private val property: String) {
 ```
 
 #### Testing our security
-To complete
+Let's access to our application in the browser through ```http://localhost:port/helloWorld```.  
+In the IntelliJ terminal you can see that the server sent ```GET /helloWorld HTTP/1.1" 401``` as described on the flow diagram (step 2).  
+You should see a sign-in dialog box where you can enter a username and password in order to authenticate.  
+Let's try to enter different credentials to see what happened:
+- Try entering wrong credentials. You should get another HTTP 401 Unauthorized error, which indicates an authentication failure.
+- Try entering guest credentials. You should get an HTTP 403 Forbbiden, as we defined ```@RolesAllowed("Admin")``` on our resource.  - Finally, we can enter the admin credentials. You should get 200 OK status code.  Looking at the HTTP request header (click F12 in the browser), we can see the following Authorization header:  
+```Authorization: Basic QWRtaW46c2VjcmV0```  
+The ```Basic``` stands for the HTTP Basic schema, and the string ```QWRtaW46c2VjcmV0``` represents the credentials in base64-encoding. We can use a base64 encoder, and we will get the credentials we entered: ```Admin:secret```
