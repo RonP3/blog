@@ -5,7 +5,7 @@ date: 2020-09-20 14:33:01 +0300
 categories: jekyll update
 ---
 
-In this post, I am going to show you how to create a simple Dropwizard app.  
+In this post, I am going to show you how to create a test.  
 This is going to be a technical tutorial.
 
 At the end of this tutorial, your app will expose a RESTful API.  
